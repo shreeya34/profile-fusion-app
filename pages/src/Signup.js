@@ -24,7 +24,7 @@ const Signup = () => {
     <div className="signup-container">
     {/* Left Side - Signup Form */}
     <div className="signup-left">
-      <h2>First, claim your unique link</h2>
+      <h2>First, claim your unique name</h2>
   
       <form onSubmit={handleSubmit}>
         <div className="form-group">

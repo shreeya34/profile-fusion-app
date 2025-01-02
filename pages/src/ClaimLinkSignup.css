@@ -29,7 +29,7 @@
   
   .form-group {
     margin-bottom: 15px;
-    width: 600px;
+    width: 100%;
   }
   
   .form-group label {
@@ -38,9 +38,11 @@
     margin-bottom: 8px;
     display: block;
   }
-  
+  .submit-btn:hover {
+    background-color: #626562;
+  }
   .form-group input {
-    width: 100%;
+    width: 700px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;

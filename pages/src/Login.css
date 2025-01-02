@@ -174,4 +174,6 @@
   .signup-link a:hover {
     text-decoration: underline;
   }
-  
+  .submit-btn:hover {
+    background-color: #626562;
+  } 

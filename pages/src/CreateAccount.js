@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // Ensure this is imported correctly
 import './CreateAccount.css'; // Styling the page
 
 const CreateAccount = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate(); // Ensure this is initialized
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -18,14 +21,24 @@ const CreateAccount = () => {
     console.log('Creating account with:', email, password);
   };
 
+  const goBack = () => {
+    navigate('/signup'); // Use navigate correctly
+  };
+
   return (
     <div className="create-account-container">
       {/* Left Side - Text */}
       <div className="create-account-left">
+        {/* Back Button */}
+        <div className="back-button" onClick={goBack}>
+          <span>&larr;</span> {/* Arrow symbol for the back icon */}
+          <span>Back</span>
+        </div>
+
         <h2>Now, Create Your Account</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-fields">
-            <div className="form-group">
+            <div className="form-groups">
               <input
                 type="email"
                 id="email"
@@ -37,7 +50,7 @@ const CreateAccount = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-groups">
               <input
                 type="password"
                 id="password"

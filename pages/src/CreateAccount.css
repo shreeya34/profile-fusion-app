@@ -28,8 +28,9 @@
     width: 100%;
   }
   
-  .form-group {
-    width: 48%; /* Adjusts width of each input to be side by side */
+  .form-groups {
+    width: 90%; /* Adjusts width of each input to be side by side */
+   
   }
   
   .form-actions {
@@ -59,7 +60,17 @@
     cursor: pointer;
   }
   
- 
+  .back-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: -400px; /* This moves the back button slightly to the left */
+  }
+  
+  .back-button span {
+    margin-right: 5px;
+    font-size: 18px;
+  }
   
   .create-account-right {
     flex: 1;
@@ -75,4 +86,6 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+  .submit-btn:hover {
+    background-color: #626562;
+  }
