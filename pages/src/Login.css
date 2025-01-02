@@ -64,9 +64,7 @@
     margin-top: 20px; /* Ensures space above the button */
   }
   
-  button:hover {
-    background-color: #0056b3;
-  }
+ 
   
   /* Right side - Photos section */
   .login-right {
@@ -90,13 +88,15 @@
   }
   /* Reset Password Link */
 .reset-password {
-    text-align: center;
+    /* text-align: center; */
     margin-top: 10px;
+    font-weight: normal; /* Removes bold text */
+
   }
   
   .reset-password a {
     text-decoration: none;
-    color: #000000;
+    color: #555;
     font-size: 14px;
   }
   
@@ -104,4 +104,74 @@
     text-decoration: underline;
   }
   
+  .or-divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .or-divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  
+  .or-divider span {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #777;
+  }
+  .social {
+    text-align: center;
+    margin: 10px 0;
+  }
+  .social h5 {
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+    font-weight: normal; /* Removes bold text */
+
+  }
+  
+  .social-login {
+    display: flex;
+    justify-content: center;
+    gap: 0px; /* Reduce the gap between buttons */
+  }
+  
+  .social-button {
+    background: none;
+    border: none;
+    padding: 0; /* Remove extra padding */
+    margin: 0; /* Ensure no margin around buttons */
+  }
+  
+  .social-button img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .social-button:hover img {
+    transform: scale(1.1);
+  }
+  
+  .signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .signup-link p {
+    margin: 0;
+    color: #555;
+  }
+  
+  .signup-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
   

@@ -1,0 +1,116 @@
+/* Wrapper to hold both the form and images */
+/* Wrapper to hold both the form and images */
+.signup-container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    background-color: #f8f9fa; /* Light background color */
+  }
+  
+  /* Left Side - Signup Form */
+  .signup-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* White background for the form */
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 2px solid #ddd; /* Optional: Add a separator line between the left and right sections */
+  }
+  
+  .signup-left h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    width: 600px;
+  }
+  
+  .form-group label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+  }
+  
+  .form-actions {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #000000; /* Black background for the button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  
+ 
+  
+  .message {
+    margin-top: 20px;
+    color: green;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .redirect-login {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .redirect-login a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .redirect-login a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  /* Right Side - Photos section */
+  .signup-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e9ecef;
+    padding: 20px;
+  }
+  
+  .signup-right .photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signup-right .photos img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;  /* Ensures image fills its container without distortion */
+  }
+  
