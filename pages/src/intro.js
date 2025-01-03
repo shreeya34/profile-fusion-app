@@ -6,11 +6,40 @@ const Intro = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
+    pageOption: "",
+    socials: {
+      instagram: "",
+      linkedin: "",
+      facebook: "",
+      twitter: "",
+      snapchat: "",
+      pinterest: "",
+      email: "",
+      phone: "",
+      website: "",
+      github: "",
+      spotify: "",
+      telegram: "",
+      discord: "",
+      medium: "",
+    }, // Store socials as an object
   });
 
-  // Handle input changes
+  // Handle input changes for form data
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prevData) => {
+      if (name === "firstName" || name === "lastName" || name === "pageOption") {
+        return { ...prevData, [name]: value };
+      }
+      if (name in prevData.socials) {
+        return {
+          ...prevData,
+          socials: { ...prevData.socials, [name]: value },
+        };
+      }
+      return prevData;
+    });
   };
 
   // Move to the next step
@@ -26,7 +55,7 @@ const Intro = () => {
       <div className="progress-line">
         <div
           className="progress"
-          style={{ width: `${(step / 2) * 100}%` }} // Dynamic width
+          style={{ width: `${(step / 3) * 100}%` }} // Dynamic width
         ></div>
       </div>
 
@@ -53,10 +82,9 @@ const Intro = () => {
                 required
               />
             </div>
-            {/* Continue Button */}
             <button
               onClick={nextStep}
-              disabled={!formData.firstName || !formData.lastName} // Disable if fields are empty
+              disabled={!formData.firstName || !formData.lastName}
             >
               Continue
             </button>
@@ -66,7 +94,6 @@ const Intro = () => {
         {step === 2 && (
           <div className="step">
             <h1>Get us up to speed</h1>
-            {/* New Options */}
             <div className="options">
               <div className="option-box">
                 <input
@@ -93,8 +120,10 @@ const Intro = () => {
               </div>
             </div>
 
-            {/* Finish Button */}
-            <button onClick={nextStep} disabled={!formData.lastName || !formData.pageOption}>
+            <button
+              onClick={nextStep}
+              disabled={!formData.pageOption}
+            >
               Continue
             </button>
           </div>
@@ -102,8 +131,32 @@ const Intro = () => {
 
         {step === 3 && (
           <div className="step">
-            <h2>Welcome, {formData.firstName} {formData.lastName}!</h2>
-            <p>Thank you for providing your details.</p>
+            <h3>Add your socials</h3>
+            <div className="socials-container">
+              {["instagram", "linkedin", "facebook", "tiktok", "snapchat", "twitter", "pinterest", "mail", "phone", "website", "github", "spotify", "telegram", "discord", "medium"].map((platform) => (
+                <div className="social-input-box" key={platform}>
+                  <label htmlFor={platform}>
+                    <img
+                      src={`/images/${platform}-logo.svg`} // Assuming you have logo images for each platform
+                      alt={`${platform} logo`}
+                      className="social-logo"
+                      onError={(e) => {
+                        e.target.src = "/images/default-logo.svg"; // Fallback logo
+                      }}
+                    />
+                    
+                  </label>
+                  <input
+                    type="text"
+                    name={platform}
+                    value={formData.socials[platform]}
+                    onChange={handleChange}
+                    placeholder={`Enter your ${platform} username/link`}
+                  />
+                </div>
+              ))}
+            </div>
+            <button onClick={nextStep}>Finish</button>
           </div>
         )}
       </div>

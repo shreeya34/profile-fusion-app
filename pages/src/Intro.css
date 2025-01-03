@@ -5,7 +5,6 @@
   justify-content: center;
   padding: 20px;
   height: 100vh;
-  background-color: #f9f9f9;
 }
 
 .progress-line {
@@ -116,4 +115,39 @@ button:disabled {
   text-align: left; /* Align the label text to the left */
 
 
+}
+/* Container for each social media input */
+.socials-container {
+  display: flex;
+  flex-direction: column; /* Stack the social input boxes vertically */
+  gap: 10px; /* Reduced the space between each input box */
+  width: 100%;
+}
+
+/* Styling for each social input box */
+.social-input-box {
+  display: flex;
+  align-items: center; 
+  gap: 5px; 
+  margin-bottom: 10px; 
+  width: 100%;
+  border: 1px solid #ccc; /* Border around the box */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+.social-logo {
+  width: 30px; /* Size of the logo */
+  height: 30px;
+  object-fit: contain; /* Ensure the logo fits within the box */
+}
+
+
+.social-input-box input {
+  width: 90%;
+  padding: 10px;
+  border: none; /* No border for the input field */
+  border-radius: 5px;
+  min-width: 200px; /* Minimum width for the input field */
 }
