@@ -105,7 +105,15 @@ button:disabled {
 
 .option-box input[type="radio"] {
   margin-right: 5px;
-  margin-left: -190px; /* Move radio button a little to the left */
+  margin-left: -100px; /* Move radio button a little to the left */
 
 }
+.option-box label {
+  margin-left: -150px; /* Reset any margin */
+  padding-left: 20px; /* Add padding to the left to move the label */
+  display: inline-block; /* Ensures the label stays on the same line as the radio button */
+  width: 100%; /* Ensure the label spans the full width of its container */
+  text-align: left; /* Align the label text to the left */
 
+
+}
