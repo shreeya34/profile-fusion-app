@@ -14,7 +14,7 @@ const Signup = () => {
 
     // For now, just displaying the unique link. You can replace this logic with API call or any functionality.
     if (uniqueLink) {
-      setMessage(`Link ${uniqueLink} successfully claimed!`);
+      setMessage(`Link ${uniqueLink} success fully claimed!`);
     } else {
       setMessage('Please enter a valid link.');
     }

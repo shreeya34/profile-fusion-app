@@ -1,0 +1,111 @@
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.progress-line {
+  width: 20%; /* Adjust the width as needed */
+  height: 4px; /* Thickness of the progress line */
+  background-color: #e0e0e0;
+  position: relative;
+  margin-top: -600px; /* Move the progress line down */
+  margin-bottom: 20px; /* Add space below */
+  border-radius: 2px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #000000; /* Green progress color */
+  border-radius: 2px;
+  transition: width 0.2s ease-in-out;
+}
+
+.step-content {
+  text-align: center;
+  margin-top: 20px; /* Space between the progress line and the content */
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step h2 {
+  margin-bottom: 20px;
+}
+
+.step input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.step .input-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.input-container input {
+  flex: 1;
+}
+
+input {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  margin: 10px auto;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.options {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Stack the boxes vertically */
+  gap: 20px; /* Space between each option box */
+}
+
+.option-box {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9; /* Light background color */
+  width: 400px; /* Make the boxes take full width of the container */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.option-box input[type="radio"] {
+  margin-right: 5px;
+  margin-left: -190px; /* Move radio button a little to the left */
+
+}
+

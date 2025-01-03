@@ -6,7 +6,7 @@ const CreateAccount = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const navigate = useNavigate(); // Ensure this is initialized
+  const navigate = useNavigate(); 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -20,6 +20,7 @@ const CreateAccount = () => {
     e.preventDefault();
     console.log('Creating account with:', email, password);
   };
+  navigate('/intro', { state: { email, password } });
 
   const goBack = () => {
     navigate('/signup'); // Use navigate correctly
