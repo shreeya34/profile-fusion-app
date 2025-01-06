@@ -18,12 +18,28 @@ const Intro = () => {
       phone: "",
       website: "",
       github: "",
-      spotify: "",
-      telegram: "",
-      discord: "",
-      medium: "",
-    }, // Store socials as an object
+    },
   });
+
+  // Array of social platforms
+  const platforms = [
+    "instagram",
+    "linkedin",
+    "facebook",
+    "twitter",
+    "snapchat",
+    "pinterest",
+    "email",
+    "phone",
+    "website",
+    "github",
+    "medium",
+    "tiktok",
+    "spotify",
+    
+    
+   
+  ];
 
   // Handle input changes for form data
   const handleChange = (e) => {
@@ -59,7 +75,7 @@ const Intro = () => {
         ></div>
       </div>
 
-      {/* Step Content */}
+    
       <div className="step-content">
         {step === 1 && (
           <div className="step">
@@ -104,7 +120,9 @@ const Intro = () => {
                   onChange={handleChange}
                   checked={formData.pageOption === "buildFromScratch"}
                 />
-                <label htmlFor="buildFromScratch">I build my Page from scratch</label>
+                <label htmlFor="buildFromScratch">
+                  I build my Page from scratch
+                </label>
               </div>
 
               <div className="option-box">
@@ -120,10 +138,7 @@ const Intro = () => {
               </div>
             </div>
 
-            <button
-              onClick={nextStep}
-              disabled={!formData.pageOption}
-            >
+            <button onClick={nextStep} disabled={!formData.pageOption}>
               Continue
             </button>
           </div>
@@ -131,32 +146,33 @@ const Intro = () => {
 
         {step === 3 && (
           <div className="step">
-            <h3>Add your socials</h3>
+            <h3>Add Your Socials</h3>
             <div className="socials-container">
-              {["instagram", "linkedin", "facebook", "tiktok", "snapchat", "twitter", "pinterest", "mail", "phone", "website", "github", "spotify", "telegram", "discord", "medium"].map((platform) => (
-                <div className="social-input-box" key={platform}>
-                  <label htmlFor={platform}>
-                    <img
-                      src={`/images/${platform}-logo.svg`} // Assuming you have logo images for each platform
-                      alt={`${platform} logo`}
-                      className="social-logo"
-                      onError={(e) => {
-                        e.target.src = "/images/default-logo.svg"; // Fallback logo
-                      }}
-                    />
-                    
-                  </label>
-                  <input
-                    type="text"
-                    name={platform}
-                    value={formData.socials[platform]}
-                    onChange={handleChange}
-                    placeholder={`Enter your ${platform} username/link`}
-                  />
-                </div>
-              ))}
+            {platforms.map((platform) => (
+              <div key={platform} className="social-item">
+                <img
+                  src={`/images/${platform}-logo.svg`}
+                  alt={`${platform} logo`}
+                  className="social-logo"
+                  onError={(e) => {
+                    e.target.src = "/images/default-logo.svg";
+                  }}
+                />
+                <input
+                  type="text"
+                  name={platform}
+                  value={formData.socials[platform] || ""}
+                  onChange={handleChange}
+                  placeholder={`Enter your ${platform} username/link`}
+                  className="social-input"
+                />
+              </div>
+            ))}
+
             </div>
-            <button onClick={nextStep}>Finish</button>
+            <button onClick={nextStep} className="finish-button">
+              Finish
+            </button>
           </div>
         )}
       </div>
