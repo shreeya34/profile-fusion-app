@@ -21,9 +21,10 @@ const Intro = () => {
       website: "",
       github: "",
     },
+    links: [], // Store added links here
+    newLink: "", // Store new link input
   });
 
-  // Array of social platforms
   const platforms = [
     "instagram",
     "linkedin",
@@ -56,12 +57,14 @@ const Intro = () => {
     spotify: "/images/spotify.png",
   };
 
-  // Handle input changes for form data
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => {
       if (name === "firstName" || name === "lastName" || name === "pageOption") {
         return { ...prevData, [name]: value };
+      }
+      if (name === "newLink") {
+        return { ...prevData, newLink: value };
       }
       if (name in prevData.socials) {
         return {
@@ -73,14 +76,23 @@ const Intro = () => {
     });
   };
 
-  // Move to the next step
+  const pasteLink = async () => {
+    try {
+      const clipboardText = await navigator.clipboard.readText();
+      setFormData((prevData) => ({
+        ...prevData,
+        newLink: clipboardText,
+      }));
+    } catch (err) {
+      console.error("Failed to read clipboard contents: ", err);
+    }
+  };
+
   const nextStep = () => {
     if (step < totalSteps) {
       setStep(step + 1);
     }
   };
-
-
 
   return (
     <div className="intro-container">
@@ -93,7 +105,6 @@ const Intro = () => {
       </div>
 
       <div className="step-content">
-        {/* Step 1: User Info */}
         {step === 1 && (
           <div className="step">
             <h2>Tell us about yourself</h2>
@@ -121,10 +132,9 @@ const Intro = () => {
           </div>
         )}
 
-        {/* Step 2: Page Option */}
         {step === 2 && (
           <div className="step">
-            <h1>Get us up to speed</h1>
+            <h2>Get us up to speed</h2>
             <div className="options">
               <div className="option-box">
                 <input
@@ -151,15 +161,12 @@ const Intro = () => {
               </div>
             </div>
 
-            <div className="buttons">
-              <button onClick={nextStep} disabled={!formData.pageOption}>
-                Continue
-              </button>
-            </div>
+            <button onClick={nextStep} disabled={!formData.pageOption}>
+              Continue
+            </button>
           </div>
         )}
 
-        {/* Step 3: Social Links */}
         {step === 3 && (
           <div className="step">
             <h3>Add Your Socials</h3>
@@ -167,10 +174,9 @@ const Intro = () => {
               {platforms.map((platform) => (
                 <div key={platform} className="social-item">
                   <img
-                    src={logoMap[platform] || logoMap.default} // Get the logo from the map or use default
+                    src={logoMap[platform] || "/images/default.png"}
                     alt={`${platform} logo`}
                     className="social-logo"
-                  
                   />
                   <input
                     type="text"
@@ -183,35 +189,35 @@ const Intro = () => {
                 </div>
               ))}
             </div>
-            <div className="buttons">
-              <button onClick={nextStep}>Continue</button>
-            </div>
+            <button onClick={nextStep}>Continue</button>
           </div>
         )}
 
-        {/* Step 4: Review and Confirm */}
         {step === 4 && (
           <div className="step">
-            <h1>Add your links</h1>
+            <h2>Add your links</h2>
             <p>It could be any link - your videos, podcasts, calendars, addresses... you name it!</p>
-            <ul>
-              <li>First Name: {formData.firstName}</li>
-              <li>Last Name: {formData.lastName}</li>
-              <li>Page Option: {formData.pageOption}</li>
-              <li>Socials:</li>
-              <ul>
-                {Object.entries(formData.socials)
-                  .filter(([platform, value]) => value)
-                  .map(([platform, value]) => (
-                    <li key={platform}>
-                      {platform}: {value}
-                    </li>
-                  ))}
-              </ul>
-            </ul>
-            <div className="buttons">
-              <button className="submit-button">Submit</button>
+            <div className="link-input-container">
+              <div className="input-with-button">
+                <input
+                  type="text"
+                  name="newLink"
+                  value={formData.newLink}
+                  onChange={handleChange}
+                  placeholder="Enter your link here"
+                  className="link-input"
+                />
+                <button className="paste-button" onClick={pasteLink}>
+                  Paste
+                </button>
+              </div>
             </div>
+            <ul>
+              {formData.links.map((link, index) => (
+                <li key={index}>{link}</li>
+              ))}
+            </ul>
+            <button className="submit-button">Submit</button>
           </div>
         )}
       </div>
