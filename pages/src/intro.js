@@ -94,6 +94,8 @@ const Intro = () => {
     }
   };
 
+ 
+
   return (
     <div className="intro-container">
       {/* Progress Line */}
@@ -195,23 +197,27 @@ const Intro = () => {
 
         {step === 4 && (
           <div className="step">
-            <h2>Add your links</h2>
+            <h2>Any website links</h2>
             <p>It could be any link - your videos, podcasts, calendars, addresses... you name it!</p>
             <div className="link-input-container">
               <div className="input-with-button">
-                <input
-                  type="text"
-                  name="newLink"
-                  value={formData.newLink}
-                  onChange={handleChange}
-                  placeholder="Enter your link here"
-                  className="link-input"
-                />
-                <button className="paste-button" onClick={pasteLink}>
-                  Paste
-                </button>
+                <div className="input-wrapper">
+                  <input
+                    type="text"
+                    name="newLink"
+                    value={formData.newLink}
+                    onChange={handleChange}
+                    placeholder="Enter your link here"
+                    className="link-input"
+                  />
+                  
+                  <button className="paste-button" onClick={pasteLink}>
+                    Paste
+                  </button>
+                </div>
               </div>
             </div>
+           
             <ul>
               {formData.links.map((link, index) => (
                 <li key={index}>{link}</li>
@@ -222,6 +228,8 @@ const Intro = () => {
         )}
       </div>
     </div>
+   
+ 
   );
 };
 
