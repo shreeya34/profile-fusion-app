@@ -180,9 +180,9 @@ button:disabled {
   top: 20%;
   transform: translateY(-50%);
   padding: 5px 10px;
-  background-color: #dce1e6;
+  background-color: #ffffff;
   color: #000000;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
@@ -191,5 +191,85 @@ button:disabled {
 }
 
 .paste-button:hover {
-  background-color: #ffffff;
+  background-color: #b4b4b4;
+}
+
+/* Theme-specific mobile container styles */
+.theme-preview {
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.mobile-container {
+  width: 320px;
+  height: 560px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Yellow Theme */
+.yellow .mobile-container {
+  background-color: #f8e71c;
+  color: #000;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Pink Theme */
+.pink .mobile-container {
+  background-color: #ff66b2;
+  color: #fff;
+  font-family: 'Comic Sans MS', sans-serif;
+}
+
+/* Blue Theme */
+.blue .mobile-container {
+  background-color: #4e92e2;
+  color: #fff;
+  font-family: 'Verdana', sans-serif;
+}
+
+/* Light Pink Theme */
+.lightPink .mobile-container {
+  background-color: #ffb6c1;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+}
+
+/* Purple Theme */
+.purple .mobile-container {
+  background-color: #800080;
+  color: #fff;
+  font-family: 'Georgia', serif;
+}
+
+/* Light Theme */
+.light .mobile-container {
+  background-color: #f0f0f0;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Dark Theme */
+.dark .mobile-container {
+  background-color: #333;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+}
+
+/* Optional: Adjustments for the theme selection */
+.theme-options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.theme-option {
+  margin: 10px;
 }

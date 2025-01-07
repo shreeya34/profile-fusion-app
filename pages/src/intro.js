@@ -3,12 +3,13 @@ import "./Intro.css"; // Import your custom styles
 
 const Intro = () => {
   const [step, setStep] = useState(1); // Track the current step
-  const totalSteps = 4; // Total number of steps
+  const totalSteps = 5; // Total number of steps (updated to 5)
 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     pageOption: "",
+    theme: "",
     socials: {
       instagram: "",
       linkedin: "",
@@ -60,7 +61,7 @@ const Intro = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => {
-      if (name === "firstName" || name === "lastName" || name === "pageOption") {
+      if (name === "firstName" || name === "lastName" || name === "pageOption" || name === "theme") {
         return { ...prevData, [name]: value };
       }
       if (name === "newLink") {
@@ -93,8 +94,6 @@ const Intro = () => {
       setStep(step + 1);
     }
   };
-
- 
 
   return (
     <div className="intro-container">
@@ -197,7 +196,7 @@ const Intro = () => {
 
         {step === 4 && (
           <div className="step">
-            <h2>Any website links</h2>
+            <h2>Add your links</h2>
             <p>It could be any link - your videos, podcasts, calendars, addresses... you name it!</p>
             <div className="link-input-container">
               <div className="input-with-button">
@@ -207,7 +206,7 @@ const Intro = () => {
                     name="newLink"
                     value={formData.newLink}
                     onChange={handleChange}
-                    placeholder="Enter your link here"
+                    placeholder="Any website link"
                     className="link-input"
                   />
                   
@@ -216,6 +215,7 @@ const Intro = () => {
                   </button>
                 </div>
               </div>
+              
             </div>
            
             <ul>
@@ -223,13 +223,113 @@ const Intro = () => {
                 <li key={index}>{link}</li>
               ))}
             </ul>
-            <button className="submit-button">Submit</button>
+            <button className="submit-button" onClick={nextStep}>
+              Continue
+            </button>
+          </div>
+        )}
+
+{step === 5 && (
+          <div className="step">
+            <h2>Choose your theme</h2>
+            <div className="theme-options">
+              <div className="theme-option">
+                <input
+                  type="radio"
+                  id="yellowTheme"
+                  name="theme"
+                  value="yellow"
+                  onChange={handleChange}
+                  checked={formData.theme === "yellow"}
+                />
+                <label htmlFor="yellowTheme">Yellow</label>
+              </div>
+              <div className="theme-option">
+                <input
+                  type="radio"
+                  id="pinkTheme"
+                  name="theme"
+                  value="pink"
+                  onChange={handleChange}
+                  checked={formData.theme === "pink"}
+                />
+                <label htmlFor="pinkTheme">Pink</label>
+              </div>
+              <div className="theme-option">
+                <input
+                  type="radio"
+                  id="blueTheme"
+                  name="theme"
+                  value="blue"
+                  onChange={handleChange}
+                  checked={formData.theme === "blue"}
+                />
+                <label htmlFor="blueTheme">Blue</label>
+              </div>
+              <div className="theme-option">
+                <input
+                  type="radio"
+                  id="lightPinkTheme"
+                  name="theme"
+                  value="lightPink"
+                  onChange={handleChange}
+                  checked={formData.theme === "lightPink"}
+                />
+                <label htmlFor="lightPinkTheme">Light Pink</label>
+              </div>
+              <div className="theme-option">
+                <input
+                  type="radio"
+                  id="purpleTheme"
+                  name="theme"
+                  value="purple"
+                  onChange={handleChange}
+                  checked={formData.theme === "purple"}
+                />
+                <label htmlFor="purpleTheme">Purple</label>
+              </div>
+              <div className="theme-option">
+                <input
+                  type="radio"
+                  id="lightTheme"
+                  name="theme"
+                  value="light"
+                  onChange={handleChange}
+                  checked={formData.theme === "light"}
+                />
+                <label htmlFor="lightTheme">Light</label>
+              </div>
+              <div className="theme-option">
+                <input
+                  type="radio"
+                  id="darkTheme"
+                  name="theme"
+                  value="dark"
+                  onChange={handleChange}
+                  checked={formData.theme === "dark"}
+                />
+                <label htmlFor="darkTheme">Dark</label>
+              </div>
+            </div>
+
+            {/* Mobile-shaped container with personalized message */}
+            {formData.theme && (
+              <div className={`theme-preview ${formData.theme}`}>
+                <div className="mobile-container">
+                  <p className="welcome-message">
+                    Welcome, {formData.firstName} {formData.lastName}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            <button onClick={nextStep} disabled={!formData.theme}>
+              Continue
+            </button>
           </div>
         )}
       </div>
     </div>
-   
- 
   );
 };
 
