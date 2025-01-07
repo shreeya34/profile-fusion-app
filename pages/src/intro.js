@@ -232,100 +232,54 @@ const Intro = () => {
 {step === 5 && (
           <div className="step">
             <h2>Choose your theme</h2>
-            <div className="theme-options">
-              <div className="theme-option">
-                <input
-                  type="radio"
-                  id="yellowTheme"
-                  name="theme"
-                  value="yellow"
-                  onChange={handleChange}
-                  checked={formData.theme === "yellow"}
-                />
-                <label htmlFor="yellowTheme">Yellow</label>
+            <p>Select a theme below to preview:</p>
+
+            {/* Mobile-shaped containers for each theme, directly shown */}
+            <div className="mobile-preview-container">
+              <div className="yellow mobile-container">
+                <p className="welcome-message">
+                  Welcome, {formData.firstName} {formData.lastName}
+                </p>
               </div>
-              <div className="theme-option">
-                <input
-                  type="radio"
-                  id="pinkTheme"
-                  name="theme"
-                  value="pink"
-                  onChange={handleChange}
-                  checked={formData.theme === "pink"}
-                />
-                <label htmlFor="pinkTheme">Pink</label>
+
+              <div className="pink mobile-container">
+                <p className="welcome-message">
+                  Welcome, {formData.firstName} {formData.lastName}
+                </p>
               </div>
-              <div className="theme-option">
-                <input
-                  type="radio"
-                  id="blueTheme"
-                  name="theme"
-                  value="blue"
-                  onChange={handleChange}
-                  checked={formData.theme === "blue"}
-                />
-                <label htmlFor="blueTheme">Blue</label>
+
+              <div className="blue mobile-container">
+                <p className="welcome-message">
+                  Welcome, {formData.firstName} {formData.lastName}
+                </p>
               </div>
-              <div className="theme-option">
-                <input
-                  type="radio"
-                  id="lightPinkTheme"
-                  name="theme"
-                  value="lightPink"
-                  onChange={handleChange}
-                  checked={formData.theme === "lightPink"}
-                />
-                <label htmlFor="lightPinkTheme">Light Pink</label>
+
+              <div className="lightPink mobile-container">
+                <p className="welcome-message">
+                  Welcome, {formData.firstName} {formData.lastName}
+                </p>
               </div>
-              <div className="theme-option">
-                <input
-                  type="radio"
-                  id="purpleTheme"
-                  name="theme"
-                  value="purple"
-                  onChange={handleChange}
-                  checked={formData.theme === "purple"}
-                />
-                <label htmlFor="purpleTheme">Purple</label>
+
+              <div className="purple mobile-container">
+                <p className="welcome-message">
+                  Welcome, {formData.firstName} {formData.lastName}
+                </p>
               </div>
-              <div className="theme-option">
-                <input
-                  type="radio"
-                  id="lightTheme"
-                  name="theme"
-                  value="light"
-                  onChange={handleChange}
-                  checked={formData.theme === "light"}
-                />
-                <label htmlFor="lightTheme">Light</label>
+
+              <div className="light mobile-container">
+                <p className="welcome-message">
+                  Welcome, {formData.firstName} {formData.lastName}
+                </p>
               </div>
-              <div className="theme-option">
-                <input
-                  type="radio"
-                  id="darkTheme"
-                  name="theme"
-                  value="dark"
-                  onChange={handleChange}
-                  checked={formData.theme === "dark"}
-                />
-                <label htmlFor="darkTheme">Dark</label>
+
+              <div className="dark mobile-container">
+                <p className="welcome-message">
+                  Welcome, {formData.firstName} {formData.lastName}
+                </p>
               </div>
             </div>
 
-            {/* Mobile-shaped container with personalized message */}
-            {formData.theme && (
-              <div className={`theme-preview ${formData.theme}`}>
-                <div className="mobile-container">
-                  <p className="welcome-message">
-                    Welcome, {formData.firstName} {formData.lastName}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            <button onClick={nextStep} disabled={!formData.theme}>
-              Continue
-            </button>
+            <button onClick={nextStep}>Finish</button>
           </div>
         )}
       </div>

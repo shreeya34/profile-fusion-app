@@ -194,69 +194,64 @@ button:disabled {
   background-color: #b4b4b4;
 }
 
-/* Theme-specific mobile container styles */
-.theme-preview {
+/* Mobile container styling */
+.mobile-preview-container {
+  display: flex;
+  justify-content: space-around;
   margin-top: 20px;
-  padding: 20px;
-  text-align: center;
 }
 
 .mobile-container {
   width: 320px;
   height: 560px;
-  margin: 0 auto;
+  margin: 20px;
   padding: 20px;
   border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  color: #fff;
+  /* color: #fff; */
+  text-align: center;
 }
 
-/* Yellow Theme */
+/* Theme-specific mobile container styles */
 .yellow .mobile-container {
   background-color: #f8e71c;
   color: #000;
   font-family: 'Arial', sans-serif;
 }
 
-/* Pink Theme */
 .pink .mobile-container {
   background-color: #ff66b2;
   color: #fff;
   font-family: 'Comic Sans MS', sans-serif;
 }
 
-/* Blue Theme */
 .blue .mobile-container {
   background-color: #4e92e2;
-  color: #fff;
+  color: #000000;
   font-family: 'Verdana', sans-serif;
 }
 
-/* Light Pink Theme */
 .lightPink .mobile-container {
   background-color: #ffb6c1;
   color: #fff;
   font-family: 'Courier New', monospace;
 }
 
-/* Purple Theme */
 .purple .mobile-container {
   background-color: #800080;
   color: #fff;
   font-family: 'Georgia', serif;
 }
 
-/* Light Theme */
 .light .mobile-container {
   background-color: #f0f0f0;
   color: #333;
   font-family: 'Arial', sans-serif;
 }
 
-/* Dark Theme */
 .dark .mobile-container {
   background-color: #333;
   color: #fff;
@@ -270,6 +265,3 @@ button:disabled {
   margin-bottom: 20px;
 }
 
-.theme-option {
-  margin: 10px;
-}
