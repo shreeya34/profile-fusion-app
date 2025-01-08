@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./Intro.css"; // Import your custom styles
 
 const Intro = () => {
   const [step, setStep] = useState(1); // Track the current step
   const totalSteps = 5; // Total number of steps (updated to 5)
+  const navigate = useNavigate(); // Use navigate for routing
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -61,7 +64,7 @@ const Intro = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => {
-      if (name === "firstName" || name === "lastName" || name === "pageOption" || name === "theme") {
+      if (["firstName", "lastName", "pageOption", "theme"].includes(name)) {
         return { ...prevData, [name]: value };
       }
       if (name === "newLink") {
@@ -89,12 +92,16 @@ const Intro = () => {
     }
   };
 
+  const handleFinish = () => {
+    // Navigate to the dashboard page
+    navigate("/Dashboard", { state: { firstName: formData.firstName, lastName: formData.lastName } });
+  };
+
   const nextStep = () => {
     if (step < totalSteps) {
       setStep(step + 1);
     }
   };
-
   return (
     <div className="intro-container">
       {/* Progress Line */}
@@ -229,7 +236,7 @@ const Intro = () => {
           </div>
         )}
 
-{step === 5 && (
+        {step === 5 && (
           <div className="step">
             <h2>Choose your theme</h2>
             <p>Select a theme below to preview:</p>
@@ -279,7 +286,7 @@ const Intro = () => {
               </div>
             </div>
 
-            <button onClick={nextStep}>Finish</button>
+            <button onClick={handleFinish}>Finish</button>
           </div>
         )}
       </div>
