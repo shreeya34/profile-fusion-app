@@ -6,7 +6,7 @@ const Dashboard = () => {
   const [description, setDescription] = useState("");
   const [profilePic, setProfilePic] = useState(null);
   const location = useLocation();  // use the useLocation hook
-  const { firstName, lastName } = location.state || {};  // Access state from location
+  const { firstName, lastName } = location.state || { firstName: "", lastName: "" };  // Fallback if no state is passed
 
   const handleProfilePicChange = (e) => {
     const file = e.target.files[0];
