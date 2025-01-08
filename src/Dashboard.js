@@ -19,11 +19,9 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      {/* Back Arrow */}
-      <div className="back-arrow">
-        <button onClick={() => window.history.back()}>&larr; Back</button>
-      </div>
-
+     <div className="back-arrow" onClick={() => window.history.back()}>
+            &larr; {/* Left arrow symbol */}
+            </div>
       {/* Profile Section */}
       <div className="profile-section">
         {/* Profile Picture */}
@@ -50,7 +48,7 @@ const Dashboard = () => {
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Add your description here..."
+          placeholder="Add description..."
           className="description-input"
         />
       </div>
