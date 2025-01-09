@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import "./Dashboard.css";
 
 const Dashboard = () => {
   const [description, setDescription] = useState("");
   const [profilePic, setProfilePic] = useState(null);
-  const location = useLocation();  // use the useLocation hook
-  const { firstName, lastName } = location.state || { firstName: "", lastName: "" };  // Fallback if no state is passed
+  const location = useLocation();
+  const { firstName, lastName } = location.state || { firstName: "", lastName: "" };
 
   const handleProfilePicChange = (e) => {
     const file = e.target.files[0];
@@ -17,14 +17,25 @@ const Dashboard = () => {
     }
   };
 
+  const handleShare = () => {
+    // Logic for share functionality
+    alert("Share button clicked!");
+  };
+
   return (
     <div className="dashboard-container">
-     <div className="back-arrow" onClick={() => window.history.back()}>
-            &larr; {/* Left arrow symbol */}
-            </div>
+      <div className="back-arrow" onClick={() => window.history.back()}>
+        &larr;
+      </div>
+
+      {/* Share Button */}
+      <div className="share-button" onClick={handleShare}>
+        <img src="/images/share.png" alt="Download" className="share-icon" />
+        <span>Share</span>
+      </div>
+
       {/* Profile Section */}
       <div className="profile-section">
-        {/* Profile Picture */}
         <div className="profile-pic">
           {profilePic ? (
             <img src={profilePic} alt="Profile" />
@@ -39,12 +50,10 @@ const Dashboard = () => {
           />
         </div>
 
-        {/* Display Full Name */}
         <h2>
           {firstName} {lastName}
         </h2>
 
-        {/* Description */}
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
