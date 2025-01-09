@@ -5,6 +5,8 @@ import Login from './Login'; // Import your login page component
 import CreateAccount from './CreateAccount';
 import Intro from './Intro';
 import Dashboard from './Dashboard';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 
 function App() {
