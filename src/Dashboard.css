@@ -170,22 +170,16 @@ textarea:focus {
   align-items: center;
 }
 
-/* Box Container */
 .social-links-box {
-  margin-top: 20px;
-  padding: 20px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  flex-direction: column;
-  align-items: center;  /* Center social links content */
-  justify-content: center;
-  /* Center the social links box */
-  margin-left: auto;
-  margin-right: auto;  /* This will center it horizontally */
+  position: absolute; /* Allows centering relative to the parent */
+  top: 50%; /* Moves the box halfway down the parent */
+  left: 50%; /* Moves the box halfway across the parent */
+  transform: translate(-50%, -50%); /* Centers the box by adjusting for its own size */
+  background-color: #fff; /* Optional: Set background color */
+  padding: 20px; /* Optional: Add padding for better spacing */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  width: 400px;
 }
 
 /* Save Button Container */
@@ -212,4 +206,21 @@ textarea:focus {
 /* Button Hover Effect */
 .save-button:hover {
   background-color: #464748;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: -100px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #888;
+  /* cursor: pointer; */
+  transition: color 0.3s;
+}
+
+.close-button:hover {
+  color: #000;
 }

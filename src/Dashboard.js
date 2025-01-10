@@ -44,6 +44,7 @@ const Dashboard = () => {
     console.log(socialLinks);
   };
 
+  
   return (
     <div className="dashboard-container">
       {/* Back Arrow */}
@@ -98,6 +99,12 @@ const Dashboard = () => {
         {/* Social Links */}
         {showSocialLinks && (
           <div className="social-links-box">
+            <button
+              className="close-button"
+              onClick={() => setShowSocialLinks(false)}
+            >
+              &times;
+            </button>
             <h3 className="social-links-title">Add Your Social Links</h3>
             <div className="social-links">
               {/* Facebook */}
