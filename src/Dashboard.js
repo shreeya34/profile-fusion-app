@@ -285,25 +285,48 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Store Card */}
+     
+      {/* Store Card with Manage/Edit Logo */}
       <div
         className={`card ${activeCard === "store" ? "active" : ""}`}
         onClick={() => setActiveCard("store")}
       >
         <div className="card-content">
-          {/* Manage/Edit Page Logo */}
-          <div className="logo">
-            <img
-              src="/path-to-your-logo.png" // Replace with the actual path to your logo
-              alt="Manage/Edit Page"
-              className="manage-logo"
-            />
-            <span className="logo-text">Manage/Edit Page</span>
-          </div>
           <h3 className="card-title">Store</h3>
         </div>
+
+        {/* Manage/Edit Logo in Circle */}
+        <div className="manage-logo-wrapper">
+          <div className="manage-logo-circle">
+          <i class="fa-regular fa-pen-to-square"></i>
+          </div>
+        </div>
+         {activeCard === "store" && (
+            <div className="store-content">
+              <div className="social-links">
+                {/* Store specific content like social links */}
+                {Object.keys(socialLinks).map((link) => (
+                  <div className="social-link" key={link}>
+                    <img
+                      src={`/images/${link}.webp`}
+                      alt={link}
+                      className="social-icon"
+                    />
+                    <input
+                      type="text"
+                      name={link}
+                      value={socialLinks[link]}
+                      onChange={handleSocialLinkChange}
+                      placeholder={`${link.charAt(0).toUpperCase() + link.slice(1)} URL`}
+                      className="social-link-input"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
     </div>
   );
 };

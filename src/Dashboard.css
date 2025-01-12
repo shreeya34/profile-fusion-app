@@ -229,20 +229,22 @@ textarea:focus {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-top: 50px;
+  margin-top:  40px;
+  margin-left: 50px;
 }
 
 .card {
-  width: 180px;
-  height: 120px;
+  width: 100px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: grey; /* Default color for cards */
+  background-color: grey; /* Default card color */
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  position: relative; /* Allow positioning of the logo inside the card */
   transition: background-color 0.3s ease;
 }
 
@@ -262,21 +264,50 @@ textarea:focus {
   font-weight: bold;
 }
 
-/* Logo Styling */
-.logo {
+/* Manage/Edit Logo Inside Circle */
+.manage-logo-wrapper {
+  position: absolute;
+  top: -30px; /* Position from the top */
+  right: -20px; /* Position from the right side */
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 10px; /* Add some spacing from the card title */
+  align-items: center;
+}
+
+.manage-logo-circle {
+  background-color: white;
+  width: 30px; /* Circle size */
+  height: 30px; /* Circle size */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc; /* Optional: Circle border */
 }
 
 .manage-logo {
-  width: 20px; /* Adjust logo size */
-  height: 20px;
-  margin-right: 5px;
+  color: #4a4a4a; /* Icon color */
+  font-size: 16px; /* Icon size */
+}
+.store-inner-box {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
 }
 
-.logo-text {
-  font-size: 0.9rem;
-  color: black;
+.store-inner-box h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.store-inner-box p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.store-inner-box .social-links {
+  display: flex;
+  flex-direction: column;
 }
