@@ -224,3 +224,59 @@ textarea:focus {
 .close-button:hover {
   color: #000;
 }
+
+.cards-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.card {
+  width: 180px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: grey; /* Default color for cards */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card.active {
+  background-color: white; /* Color for active card */
+  color: black; /* Ensure the text is readable on white background */
+}
+
+.card-content {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px; /* Add some spacing from the card title */
+}
+
+.manage-logo {
+  width: 20px; /* Adjust logo size */
+  height: 20px;
+  margin-right: 5px;
+}
+
+.logo-text {
+  font-size: 0.9rem;
+  color: black;
+}

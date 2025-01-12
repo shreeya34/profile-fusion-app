@@ -6,6 +6,10 @@ const Dashboard = () => {
   const [description, setDescription] = useState("");
   const [profilePic, setProfilePic] = useState(null);
   const [showSocialLinks, setShowSocialLinks] = useState(false);
+  
+  const [activeCard, setActiveCard] = useState(""); 
+
+
   const [socialLinks, setSocialLinks] = useState({
     facebook: "",
     twitter: "",
@@ -270,6 +274,36 @@ const Dashboard = () => {
           </div>
         )}
       </div>
+      <div className="cards-container">
+      {/* Links Card */}
+      <div
+        className={`card ${activeCard === "links" ? "active" : ""}`}
+        onClick={() => setActiveCard("links")}
+      >
+        <div className="card-content">
+          <h3 className="card-title">Links</h3>
+        </div>
+      </div>
+
+      {/* Store Card */}
+      <div
+        className={`card ${activeCard === "store" ? "active" : ""}`}
+        onClick={() => setActiveCard("store")}
+      >
+        <div className="card-content">
+          {/* Manage/Edit Page Logo */}
+          <div className="logo">
+            <img
+              src="/path-to-your-logo.png" // Replace with the actual path to your logo
+              alt="Manage/Edit Page"
+              className="manage-logo"
+            />
+            <span className="logo-text">Manage/Edit Page</span>
+          </div>
+          <h3 className="card-title">Store</h3>
+        </div>
+      </div>
+    </div>
     </div>
   );
 };
