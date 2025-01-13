@@ -265,6 +265,7 @@ const Dashboard = () => {
               </div>
             </div>
 
+           
             {/* Save Button */}
             <div className="save-button-container">
               <button className="save-button" onClick={handleSaveSocialLinks}>
@@ -274,54 +275,42 @@ const Dashboard = () => {
           </div>
         )}
       </div>
+
+      {/* Cards Container */}
       <div className="cards-container">
-      {/* Links Card */}
-      <div
-        className={`card ${activeCard === "links" ? "active" : ""}`}
-        onClick={() => setActiveCard("links")}
-      >
-        <div className="card-content">
-          <h3 className="card-title">Links</h3>
-        </div>
-      </div>
-
-     
-      {/* Store Card with Manage/Edit Logo */}
-      <div
-        className={`card ${activeCard === "store" ? "active" : ""}`}
-        onClick={() => setActiveCard("store")}
-      >
-        <div className="card-content">
-          <h3 className="card-title">Store</h3>
-        </div>
-
-        {/* Manage/Edit Logo in Circle */}
-        <div className="manage-logo-wrapper">
-          <div className="manage-logo-circle">
-          <i class="fa-regular fa-pen-to-square"></i>
+        {/* Links Card */}
+        <div
+          className={`card ${activeCard === "links" ? "active" : ""}`}
+          onClick={() => setActiveCard("links")}
+        >
+          <div className="card-content">
+            <h3 className="card-title">Links</h3>
           </div>
         </div>
-         {activeCard === "store" && (
-            <div className="store-content">
-              <div className="social-links">
-                {/* Store specific content like social links */}
-                {Object.keys(socialLinks).map((link) => (
-                  <div className="social-link" key={link}>
-                    <img
-                      src={`/images/${link}.webp`}
-                      alt={link}
-                      className="social-icon"
-                    />
-                    <input
-                      type="text"
-                      name={link}
-                      value={socialLinks[link]}
-                      onChange={handleSocialLinkChange}
-                      placeholder={`${link.charAt(0).toUpperCase() + link.slice(1)} URL`}
-                      className="social-link-input"
-                    />
-                  </div>
-                ))}
+
+        {/* Store Card */}
+        <div
+          className={`card ${activeCard === "store" ? "active" : ""}`}
+          onClick={() => setActiveCard("store")}
+        >
+          <div className="card-content">
+            <h3 className="card-title">Store</h3>
+          </div>
+          <div className="manage-logo-wrapper">
+            <div className="manage-logo-circle">
+              <i className="fa-regular fa-pen-to-square"></i>
+            </div>
+          </div>
+
+          {activeCard === "store" && (
+            <div className="dashboard">
+              <div className="large-box">
+                <div className="small-box">
+                  <h3>Links</h3>
+                </div>
+                <div className="small-box">
+                  <h3>Store</h3>
+                </div>
               </div>
             </div>
           )}

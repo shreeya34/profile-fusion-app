@@ -173,7 +173,7 @@ textarea:focus {
 .social-links-box {
   position: absolute; /* Allows centering relative to the parent */
   top: 50%; /* Moves the box halfway down the parent */
-  left: 50%; /* Moves the box halfway across the parent */
+  left: 50%; 
   transform: translate(-50%, -50%); /* Centers the box by adjusting for its own size */
   background-color: #fff; /* Optional: Set background color */
   padding: 20px; /* Optional: Add padding for better spacing */
@@ -289,25 +289,31 @@ textarea:focus {
   color: #4a4a4a; /* Icon color */
   font-size: 16px; /* Icon size */
 }
-.store-inner-box {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  margin-top: 10px;
-}
 
-.store-inner-box h4 {
-  font-size: 18px;
-  font-weight: bold;
-}
 
-.store-inner-box p {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
 
-.store-inner-box .social-links {
+
+.large-box {
   display: flex;
   flex-direction: column;
+  width: 500px;
+  left: 50%; /* Move the box halfway to the right */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.small-box {
+  margin: 10px 0;
+  padding: 20px;
+  background-color: #e8f0fe;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
