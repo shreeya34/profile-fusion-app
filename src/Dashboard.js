@@ -318,58 +318,65 @@ const Dashboard = () => {
         </div>
       </div>
       {isBoxVisible && (
-  <div className="large-box">
-    <div className="box-header">
-      <h3>Edit Pages</h3>
-      <div
-        className="close-icon"
-        onClick={() => setIsBoxVisible(false)} // Close the box
-      >
-        <i className="fa-duotone fa-solid fa-xmark"></i>
-      </div>
-    </div>
-    
-    <div className="small-box">
-      <div className="icon-wrapper">
-        <i className="fa-solid fa-link"></i> {/* Link Icon */}
-      </div>
-      <h3>Links</h3>
-      
-      <div className="toggle-wrapper">
-        <label className="switch">
-          <input 
-            type="checkbox" 
-            checked={isLinksOn} 
-            onChange={() => setIsLinksOn(!isLinksOn)} 
-          />
-          <span className="slider"></span>
-        </label>
-        <span className="status">{isLinksOn}</span> {/* ON/OFF status */}
-      </div>
-    </div>
-    
-    <div className="small-box">
-      <div className="icon-wrapper">
-        <i className="fa-solid fa-store"></i> {/* Store Icon */}
-      </div>
-      <h3>Store</h3>
-      <div className="toggle-wrapper">
-        <label className="switch">
-          <input 
-            type="checkbox" 
-            checked={isStoreOn} 
-            onChange={() => setIsStoreOn(!isStoreOn)} 
-          />
-          <span className="slider"></span>
-        </label>
-        <span className="status">{isStoreOn }</span> {/* ON/OFF status */}
-      </div>
-    </div>
-  </div>
-)}
+        <div className="large-box">
+          {/* Header Section */}
+          <div className="box-header">
+            <h3>Edit Pages</h3>
+            <div
+              className="close-icon"
+              onClick={() => setIsBoxVisible(false)} // Close the box
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </div>
+          </div>
 
+          {/* Links Section */}
+          <div className="small-box">
+            <div className="icon-wrapper">
+              <i className="fa-solid fa-link"></i> {/* Link Icon */}
+            </div>
+            <h3>Links</h3>
+            <div className="toggle-wrapper">
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={isLinksOn}
+                  onChange={() => setIsLinksOn(!isLinksOn)}
+                />
+                <span className="slider"></span>
+              </label>
+              <i
+                className="fa-regular fa-pen-to-square edit-icon"
+                onClick={() => alert("Edit Links")} // Replace with actual functionality
+              ></i>
+              <span className="status">{isLinksOn }</span>
+            </div>
+          </div>
 
-
+          {/* Store Section */}
+          <div className="small-box">
+            <div className="icon-wrapper">
+              <i className="fa-solid fa-store"></i> {/* Store Icon */}
+            </div>
+            <h3>Store</h3>
+            <div className="toggle-wrapper">
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={isStoreOn}
+                  onChange={() => setIsStoreOn(!isStoreOn)}
+                />
+                <span className="slider"></span>
+              </label>
+              <i
+                className="fa-regular fa-pen-to-square edit-icon"
+                onClick={() => alert("Edit Store")} // Replace with actual functionality
+              ></i>
+              <span className="status">{isStoreOn }</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
