@@ -290,14 +290,44 @@ textarea:focus {
   font-size: 16px; /* Icon size */
 }
 
+.cards-container {
+  display: flex;
+  gap: 20px;
+}
 
+.card {
+  width: 50px;
+  height: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
+.manage-logo-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.manage-logo-circle {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
 
 .large-box {
-  display: flex;
-  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 500px;
-  left: 50%; /* Move the box halfway to the right */
   background-color: #ffffff;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -308,7 +338,7 @@ textarea:focus {
 .small-box {
   margin: 10px 0;
   padding: 20px;
-  background-color: #e8f0fe;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 8px;
   text-align: center;
@@ -316,4 +346,89 @@ textarea:focus {
   font-size: 18px;
   color: #333;
 }
+.close-icon {
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute; /* Position absolutely inside box-header */
+  top: 10px;
+  right: 10px; /* Position the icon at the top-right corner */
+}
+.icon-wrapper {
+  margin-right: 400px; /* Space between icon and text */
+}
 
+.icon-wrapper i {
+  font-size: 24px; /* Icon size */
+  color: #333;
+}
+
+.small-box h3 {
+  margin: -20px 0 0 0; /* Move the text a little up */
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 300px;
+
+  
+}
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Move the switch to the right */
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  left: 4px; /* Positioning the button to the left initially */
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px); /* Moves the button to the right */
+}
+
+.status {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+input:checked + .slider + .status {
+  color: #4CAF50;
+  font-weight: bold;
+}

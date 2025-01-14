@@ -6,8 +6,10 @@ const Dashboard = () => {
   const [description, setDescription] = useState("");
   const [profilePic, setProfilePic] = useState(null);
   const [showSocialLinks, setShowSocialLinks] = useState(false);
-  
-  const [activeCard, setActiveCard] = useState(""); 
+  const [activeCard, setActiveCard] = useState(""); // State for active card
+  const [isBoxVisible, setIsBoxVisible] = useState(false);
+  const [isLinksOn, setIsLinksOn] = useState(false);  // Links toggle state
+  const [isStoreOn, setIsStoreOn] = useState(false);  // Store toggle state
 
 
   const [socialLinks, setSocialLinks] = useState({
@@ -47,7 +49,14 @@ const Dashboard = () => {
     // You can send the socialLinks state to a backend here
     console.log(socialLinks);
   };
-
+    // Function to handle card click to set active card
+    const handleCardClick = (card) => {
+      setActiveCard(card);
+      if (card === "store") {
+        // Only toggle box visibility when clicking store
+        setIsBoxVisible(!isBoxVisible);
+      }
+    };
   
   return (
     <div className="dashboard-container">
@@ -287,35 +296,80 @@ const Dashboard = () => {
             <h3 className="card-title">Links</h3>
           </div>
         </div>
-
-        {/* Store Card */}
+         {/* Store Card */}
         <div
           className={`card ${activeCard === "store" ? "active" : ""}`}
-          onClick={() => setActiveCard("store")}
+          onClick={() => handleCardClick("store")}  
         >
           <div className="card-content">
             <h3 className="card-title">Store</h3>
           </div>
           <div className="manage-logo-wrapper">
-            <div className="manage-logo-circle">
+            <div
+              className="manage-logo-circle"
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent triggering the card click
+                setIsBoxVisible(!isBoxVisible); // Toggle visibility of box on icon click
+              }}
+            >
               <i className="fa-regular fa-pen-to-square"></i>
             </div>
           </div>
-
-          {activeCard === "store" && (
-            <div className="dashboard">
-              <div className="large-box">
-                <div className="small-box">
-                  <h3>Links</h3>
-                </div>
-                <div className="small-box">
-                  <h3>Store</h3>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
+      {isBoxVisible && (
+  <div className="large-box">
+    <div className="box-header">
+      <h3>Edit Pages</h3>
+      <div
+        className="close-icon"
+        onClick={() => setIsBoxVisible(false)} // Close the box
+      >
+        <i className="fa-duotone fa-solid fa-xmark"></i>
+      </div>
+    </div>
+    
+    <div className="small-box">
+      <div className="icon-wrapper">
+        <i className="fa-solid fa-link"></i> {/* Link Icon */}
+      </div>
+      <h3>Links</h3>
+      
+      <div className="toggle-wrapper">
+        <label className="switch">
+          <input 
+            type="checkbox" 
+            checked={isLinksOn} 
+            onChange={() => setIsLinksOn(!isLinksOn)} 
+          />
+          <span className="slider"></span>
+        </label>
+        <span className="status">{isLinksOn}</span> {/* ON/OFF status */}
+      </div>
+    </div>
+    
+    <div className="small-box">
+      <div className="icon-wrapper">
+        <i className="fa-solid fa-store"></i> {/* Store Icon */}
+      </div>
+      <h3>Store</h3>
+      <div className="toggle-wrapper">
+        <label className="switch">
+          <input 
+            type="checkbox" 
+            checked={isStoreOn} 
+            onChange={() => setIsStoreOn(!isStoreOn)} 
+          />
+          <span className="slider"></span>
+        </label>
+        <span className="status">{isStoreOn }</span> {/* ON/OFF status */}
+      </div>
+    </div>
+  </div>
+)}
+
+
+
     </div>
   );
 };
