@@ -432,15 +432,20 @@ input:checked + .slider + .status {
   color: #4CAF50;
   font-weight: bold;
 }
+/* Ensure the parent container has a defined position */
+.parent-container {
+  position: relative;
+}
+
+/* Edit icon styles */
 .edit-icon {
   font-size: 18px;
   cursor: pointer;
   color: #333;
-  position: absolute; /* Use absolute positioning */
-  top: 20%; /* Align vertically relative to the parent */
-  transform: translateY(-50%); /* Center vertically */
-  right: 300px; /* Adjust horizontal spacing */
-  margin-left: -8px; /* Optional: space between slider and icon */
+  position: absolute;
+  top: 50%; /* Center vertically */
+  right: 10px; /* Adjust horizontal alignment as needed */
+  transform: translateY(-50%); /* Center within the parent */
   transition: color 0.3s ease;
 }
 
