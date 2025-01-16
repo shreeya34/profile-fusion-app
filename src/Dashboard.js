@@ -382,15 +382,16 @@ const Dashboard = () => {
 
         </div>
       )}
-
-      {/* Rectangle Box at the bottom */}
       <div className="rectangle-box">
-      <a href="qf" className="icon-link">
-        <i className="fa-solid fa-link icon"></i>
-      </a>
+        <a href="ab" className="icon-link">
+          <i className="fa-solid fa-link icon"></i> 
+        </a>
+        <a href="vv" className="text-icon">
+          <i class="fa-solid fa-t"></i>        </a>
       </div>
-    </div>
-  );
-};
+      </div>
+    );
+  };
 
 export default Dashboard;
+
