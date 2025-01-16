@@ -452,3 +452,45 @@ input:checked + .slider + .status {
 .edit-icon:hover {
   color: #007bff;
 }
+.rectangle-box {
+  position: fixed;
+  bottom: 30px;
+  left: 40%;
+  width: 20%;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;  /* Ensure it stays on top */
+  height: 20px;
+}
+
+.rectangle-box h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.rectangle-box p {
+  font-size: 1em;
+  color: #555;
+}
+.small-box {
+  display: flex;
+  gap: 20px; /* Space between icons */
+  padding: 20px;
+  background-color: #6e6e6e; /* Background color for the small box */
+  border-radius: 8px;
+}
+
+.icon-link {
+  display: inline-block;
+  font-size: 1.2rem; /* Decrease font size for the link */
+  margin-top: -10px;  /* Move the link a little up */
+}
+
+/* Icon Styling */
+.icon {
+  font-size: 1.5rem;  /* Decrease the icon size */
+  margin-right: 5px;  /* Adjust spacing between icon and link */
+}

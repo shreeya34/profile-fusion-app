@@ -382,6 +382,13 @@ const Dashboard = () => {
 
         </div>
       )}
+
+      {/* Rectangle Box at the bottom */}
+      <div className="rectangle-box">
+      <a href="qf" className="icon-link">
+        <i className="fa-solid fa-link icon"></i>
+      </a>
+      </div>
     </div>
   );
 };
