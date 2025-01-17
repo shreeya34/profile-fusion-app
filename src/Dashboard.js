@@ -10,6 +10,7 @@ const Dashboard = () => {
   const [isBoxVisible, setIsBoxVisible] = useState(false);
   const [isLinksOn, setIsLinksOn] = useState(false);  // Links toggle state
   const [isStoreOn, setIsStoreOn] = useState(false);  // Store toggle state
+  const [isEditMode, setIsEditMode] = useState(true);
 
 
   const [socialLinks, setSocialLinks] = useState({
@@ -37,6 +38,9 @@ const Dashboard = () => {
     }
   };
 
+  const toggleMode = () => {
+    setIsEditMode(!isEditMode);
+  };
   // Handle social link changes
   const handleSocialLinkChange = (e) => {
     const { name, value } = e.target;
@@ -393,8 +397,22 @@ const Dashboard = () => {
           <i class="fa-solid fa-plus"></i>
         </a>
         <div className="vertical-line"></div>
+        <a href="vs" className="mobile-icon">
+          <i class="fa-solid fa-mobile"></i>
+        </a>
+        <a href="vd" className="desktop-icon">
+            <i class="fa-solid fa-desktop"></i>
+        </a>
+        <div className="switch-box">
+        <label className="switch">
+          <input type="checkbox" onChange={toggleMode} />
+          <span className="slider"></span>
+        </label>
+        <p className="mode-text">{isEditMode }</p>
       </div>
       </div>
+      </div>
+      
     );
   };
 
