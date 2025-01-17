@@ -475,22 +475,15 @@ input:checked + .slider + .status {
   font-size: 1em;
   color: #555;
 }
-.small-box {
-  display: flex;
-  gap: 20px; /* Space between icons */
-  padding: 20px;
-  background-color: #6e6e6e; /* Background color for the small box */
-  border-radius: 8px;
-  width: 2px;
-  height: 2px;
-  margin-top: -10px;
-}
+
 
 .icon-link{
   display: inline-block;
   align-items: center;      /* Align text and icon vertically */
   font-size: 1.2rem; /* Decrease font size for the link */
   margin-top: -10px;  /* Move the link a little up */
+  color: #000;      
+
 
 }
 
@@ -505,7 +498,9 @@ input:checked + .slider + .status {
   align-items: center; /* This is for flexbox, but isn't necessary here */
   margin-left: 50px;  /* Adjust the spacing */
   position: relative; /* Add this to make 'top' work */
-  top: -25px;         /* Move the icon up */
+  top: -25px;  
+  color: #000;      
+  
 }
 .plus-icon {
   font-size: 1.5rem;
@@ -513,7 +508,9 @@ input:checked + .slider + .status {
   align-items: center; /* This is for flexbox, but isn't necessary here */
   margin-left: 30px;  /* Adjust the spacing */
   position: relative; /* Add this to make 'top' work */
-  top: -25px;         /* Move the icon up */
+  top: -25px;  
+  color: #000;      
+  
 }
 .vertical-line {
   width: 1px; /* Thickness of the line */
@@ -531,7 +528,9 @@ input:checked + .slider + .status {
   align-items: center; /* This is for flexbox, but isn't necessary here */
   margin-left: 50%;  /* Adjust the spacing */
   position: relative; /* Add this to make 'top' work */
-  top: -95px;         /* Move the icon up */
+  top: -95px;  
+  color: #000;     
+  
 }
 
 .desktop-icon {
@@ -540,7 +539,8 @@ input:checked + .slider + .status {
   align-items: center; /* This is for flexbox, but isn't necessary here */
   margin-left: 65%;  /* Adjust the spacing */
   position: relative; /* Add this to make 'top' work */
-  top: -120px;         /* Move the icon up */
+  top: -120px;   
+  color: #000;      
 }
 .switch-box {
   margin-top: -40%;
