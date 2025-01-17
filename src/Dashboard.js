@@ -316,7 +316,7 @@ const Dashboard = () => {
                 setIsBoxVisible(!isBoxVisible); // Toggle visibility of box on icon click
               }}
             >
-              <i className="fa-regular fa-pen-to-square"></i>
+            <i className="fa-regular fa-pen-to-square"></i>
             </div>
           </div>
         </div>
