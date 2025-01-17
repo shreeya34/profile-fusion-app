@@ -499,10 +499,27 @@ input:checked + .slider + .status {
   font-size: 1.5rem;  /* Decrease the icon size */
   margin-right: 900px;  /* Adjust spacing between icon and link */
 }
-.text-icon i {
+.text-icon {
   font-size: 1.5rem;
   display: inline-block;
-  align-items: center;  /* Align text and icon vertically */
-  margin-left: 50px;  /* Adjust the size of the text icon */
-  margin-top: -15px;  /* Move the icon a little up */
+  align-items: center; /* This is for flexbox, but isn't necessary here */
+  margin-left: 50px;  /* Adjust the spacing */
+  position: relative; /* Add this to make 'top' work */
+  top: -25px;         /* Move the icon up */
+}
+.plus-icon {
+  font-size: 1.5rem;
+  display: inline-block;
+  align-items: center; /* This is for flexbox, but isn't necessary here */
+  margin-left: 30px;  /* Adjust the spacing */
+  position: relative; /* Add this to make 'top' work */
+  top: -25px;         /* Move the icon up */
+}
+.vertical-line {
+  width: 1px; /* Thickness of the line */
+  height: 30px; /* Adjust height as needed */
+  background-color: black; /* Color of the line */
+  margin-left: 40%; /* Space between the icon and the line */
+  position: relative; /* Add this to make 'top' work */
+  top: -50px;
 }

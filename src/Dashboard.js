@@ -387,7 +387,12 @@ const Dashboard = () => {
           <i className="fa-solid fa-link icon"></i> 
         </a>
         <a href="vv" className="text-icon">
-          <i class="fa-solid fa-t"></i>        </a>
+          <i class="fa-solid fa-t"></i>        
+        </a> 
+        <a href="v" className="plus-icon">
+          <i class="fa-solid fa-plus"></i>
+        </a>
+        <div className="vertical-line"></div>
       </div>
       </div>
     );
