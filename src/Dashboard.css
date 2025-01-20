@@ -368,8 +368,7 @@ textarea:focus {
   font-weight: bold;
   color: #333;
   margin-right: 300px;
-
-  
+ 
 }
 .toggle-wrapper {
   display: flex;
@@ -437,17 +436,15 @@ input:checked + .slider + .status {
   position: relative;
 }
 
-/* Edit icon styles */
 .edit-icon {
-  font-size: 18px;
   cursor: pointer;
-  color: #333;
-  position: absolute;
-  top: 50%; /* Center vertically */
-  right: 10px; /* Adjust horizontal alignment as needed */
-  transform: translateY(-50%); /* Center within the parent */
-  transition: color 0.3s ease;
+  font-size: 18px;
+  margin-right: 200px;
+  position: relative;
+  top: -20px; /* Move the icon upwards */
+  
 }
+
 
 .edit-icon:hover {
   color: #007bff;

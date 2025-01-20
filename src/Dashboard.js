@@ -333,56 +333,66 @@ const Dashboard = () => {
               <i className="fa-solid fa-xmark"></i>
             </div>
           </div>
-
+          {/* Links Section */}
           <div className="small-box">
-              {/* Links Section */}
-              <div className="icon-wrapper">
-                <i className="fa-solid fa-link"></i> {/* Link Icon */}
-              </div>
-              <h3>Links</h3>
-              <div className="toggle-wrapper">
-                {/* Toggle for Links */}
-                <label className="switch">
-                  <input
-                    type="checkbox"
-                    checked={isLinksOn}
-                    onChange={() => setIsLinksOn(!isLinksOn)}
-                  />
-                  <span className="slider"></span>
-                </label>
-                {/* Edit Button for Links */}
-                <i
-                  className="fa-regular fa-pen-to-square edit-icon"
-                  onClick={() => alert("Edit Links clicked!")}
-                ></i>
-                <span className="status">{isLinksOn ? "Enabled" : "Disabled"}</span>
-              </div>
+            <div className="icon-wrapper">
+              <i className="fa-solid fa-link"></i> {/* Link Icon */}
             </div>
+            <h3>Links</h3>
+            <div className="toggle-wrapper">
+              {/* Edit Button for Links */}
+              <i
+                className="fa-regular fa-pen-to-square edit-icon links-edit-icon"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent unintended parent clicks
+                  alert("Edit Links clicked!");
+                }}
+              ></i>
+              {/* Toggle for Links */}
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={isLinksOn}
+                  onChange={() => setIsLinksOn(!isLinksOn)}
+                />
+                <span className="slider"></span>
+              </label>
+              <span className="status">{isLinksOn ? "Enabled" : "Disabled"}</span>
+            </div>
+          </div>
 
-            {/* Store Section */}
-            <div className="small-box">
-              <div className="icon-wrapper">
-                <i className="fa-solid fa-store"></i> {/* Store Icon */}
-              </div>
-              <h3>Store</h3>
-              <div className="toggle-wrapper">
-                {/* Toggle for Store */}
-                <label className="switch">
-                  <input
-                    type="checkbox"
-                    checked={isStoreOn}
-                    onChange={() => setIsStoreOn(!isStoreOn)}
-                  />
-                  <span className="slider"></span>
-                </label>
-                {/* Edit Button for Store */}
-                <i
-                  className="fa-regular fa-pen-to-square edit-icon"
-                  onClick={() => alert("Edit Store clicked!")}
-                ></i>
-                <span className="status">{isStoreOn ? "Enabled" : "Disabled"}</span>
-              </div>
+          {/* Store Section */}
+          <div className="small-box">
+            <div className="icon-wrapper">
+              <i className="fa-solid fa-store"></i> {/* Store Icon */}
             </div>
+            <h3>Store</h3>
+            <div className="toggle-wrapper">
+              {/* Edit Button for Store */}
+              <i
+                className="fa-regular fa-pen-to-square edit-icon store-edit-icon"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent unintended parent clicks
+                  alert("Edit Store clicked!");
+                }}
+              ></i>
+              {/* Toggle for Store */}
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={isStoreOn}
+                  onChange={() => setIsStoreOn(!isStoreOn)}
+                />
+                <span className="slider"></span>
+              </label>
+              <span className="status">{isStoreOn ? "Enabled" : "Disabled"}</span>
+            </div>
+          </div>
+
+
+
+         
+
 
         </div>
       )}
