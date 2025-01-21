@@ -388,11 +388,7 @@ const Dashboard = () => {
               <span className="status">{isStoreOn ? "Enabled" : "Disabled"}</span>
             </div>
           </div>
-
-
-
-         
-
+           
 
         </div>
       )}
