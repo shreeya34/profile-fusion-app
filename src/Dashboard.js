@@ -11,6 +11,11 @@ const Dashboard = () => {
   const [isLinksOn, setIsLinksOn] = useState(false);  // Links toggle state
   const [isStoreOn, setIsStoreOn] = useState(false);  // Store toggle state
   const [isEditMode, setIsEditMode] = useState(true);
+  const [pageName, setPageName] = useState("");
+  const [isRenameBoxVisible, setIsRenameBoxVisible] = useState(false);
+
+
+
 
 
   const [socialLinks, setSocialLinks] = useState({
@@ -45,6 +50,13 @@ const Dashboard = () => {
   const handleSocialLinkChange = (e) => {
     const { name, value } = e.target;
     setSocialLinks((prevLinks) => ({ ...prevLinks, [name]: value }));
+  };
+  const handlePageRename = () => {
+    if (pageName.trim()) {
+      console.log(`Page renamed to: ${pageName}`);
+      setIsRenameBoxVisible(false);
+      setPageName("");
+    }
   };
 
   // Save social links
@@ -361,37 +373,65 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Store Section */}
           <div className="small-box">
-            <div className="icon-wrapper">
-              <i className="fa-solid fa-store"></i> {/* Store Icon */}
-            </div>
-            <h3>Store</h3>
-            <div className="toggle-wrapper">
-              {/* Edit Button for Store */}
-              <i
-                className="fa-regular fa-pen-to-square edit-icon store-edit-icon"
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent unintended parent clicks
-                  alert("Edit Store clicked!");
-                }}
-              ></i>
-              {/* Toggle for Store */}
-              <label className="switch">
-                <input
-                  type="checkbox"
-                  checked={isStoreOn}
-                  onChange={() => setIsStoreOn(!isStoreOn)}
-                />
-                <span className="slider"></span>
-              </label>
-              <span className="status">{isStoreOn ? "Enabled" : "Disabled"}</span>
+        <div className="icon-wrapper">
+          <i className="fa-solid fa-store"></i> {/* Store Icon */}
+        </div>
+        <h3>Store</h3>
+        <div className="toggle-wrapper">
+          {/* Edit Button for Store */}
+          <i
+            className="fa-regular fa-pen-to-square edit-icon store-edit-icon"
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent unintended parent clicks
+              setIsRenameBoxVisible(true); // Open the Rename Box
+            }}
+          ></i>
+          {/* Toggle for Store */}
+          <label className="switch">
+            <input
+              type="checkbox"
+              checked={isStoreOn}
+              onChange={() => setIsStoreOn(!isStoreOn)}
+            />
+            <span className="slider"></span>
+          </label>
+          <span className="status">{isStoreOn ? "Enabled" : "Disabled"}</span>
+        </div>
+      </div>
+      </div>
+      )}
+
+      {/* Rename Page Modal */}
+      {isRenameBoxVisible && (
+        <div className="rename-box">
+          <div className="box-header">
+            <h3>Rename Page</h3>
+            <div
+              className="close-icon"
+              onClick={() => setIsRenameBoxVisible(false)}
+            >
+              <i className="fa-solid fa-xmark"></i>
             </div>
           </div>
-           
-
+          <div className="box-body">
+            <label htmlFor="rename-input">New Page Name:</label>
+            <input
+              type="text"
+              id="rename-input"
+              value={pageName}
+              onChange={(e) => setPageName(e.target.value)}
+              placeholder="Enter new page name"
+              className="rename-input"
+            />
+            <button className="save-button" onClick={handlePageRename}>
+              Save
+            </button>
+          </div>
         </div>
       )}
+
+
       <div className="rectangle-box">
         <a href="ab" className="icon-link">
           <i className="fa-solid fa-link icon"></i> 
