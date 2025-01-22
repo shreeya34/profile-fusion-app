@@ -49,23 +49,35 @@
     flex-direction: column;
     align-items: center;
   }
-  
-  /* Login button */
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #000000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    max-width: 100%;
-    margin-top: 20px; /* Ensures space above the button */
-  }
-  
- 
-  
+ /* Specific styling for login button */
+.login-left button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #000000; /* Black background for the login button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+/* Ensure social buttons do not inherit the black background */
+.social-button {
+  background-color: transparent; /* No background for social buttons */
+  border: none;
+}
+
+.social-button img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Hover effect for social buttons */
+.social-button:hover img {
+  transform: scale(1.1);
+}
   /* Right side - Photos section */
   .login-right {
     flex: 1;
@@ -146,14 +158,6 @@
     margin: 0; /* Ensure no margin around buttons */
   }
   
-  .social-button img {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .social-button:hover img {
-    transform: scale(1.1);
-  }
   
   .signup-link {
     text-align: center;
