@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Ensure this is imported correctly
 import './CreateAccount.css'; // Styling the page
 
+
 const CreateAccount = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(''); // Add state for error
+
 
   const navigate = useNavigate(); 
 
@@ -16,15 +19,43 @@ const CreateAccount = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Creating account with:', email, password);
-  };
-  navigate('/intro', { state: { email, password } });
+    setError('');
+
+    console.log('Submitting form:', { email, password }); // De
+
+    try {
+      const response = await fetch('http://localhost:8000/create-account', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.detail || 'Account creation failed');
+      }
+
+     // Navigate to intro page with email state
+     navigate('/intro', { 
+      state: { 
+        email: email 
+      } 
+    });
+  } catch (err) {
+    setError(err.message);
+    console.error('Account creation error:', err);
+  }
+};
 
   const goBack = () => {
-    navigate('/signup'); // Use navigate correctly
+    navigate('/signup');
   };
+
 
   return (
     <div className="create-account-container">
