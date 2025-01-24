@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Dashboard.css";
+import Switch from 'react-switch';
+
+
 
 const Dashboard = () => {
   const [description, setDescription] = useState("");
@@ -10,9 +13,10 @@ const Dashboard = () => {
   const [isBoxVisible, setIsBoxVisible] = useState(false);
   const [isLinksOn, setIsLinksOn] = useState(false);  // Links toggle state
   const [isStoreOn, setIsStoreOn] = useState(false);  // Store toggle state
-  const [isEditMode, setIsEditMode] = useState(true);
   const [pageName, setPageName] = useState("");
   const [isRenameBoxVisible, setIsRenameBoxVisible] = useState(false);
+  const [checked, setChecked] = useState(false);
+
 
 
 
@@ -42,10 +46,10 @@ const Dashboard = () => {
       reader.readAsDataURL(file);
     }
   };
-
-  const toggleMode = () => {
-    setIsEditMode(!isEditMode);
+  const handleChange = nextChecked => {
+    setChecked(nextChecked);
   };
+ 
   // Handle social link changes
   const handleSocialLinkChange = (e) => {
     const { name, value } = e.target;
@@ -450,12 +454,15 @@ const Dashboard = () => {
             <i class="fa-solid fa-desktop"></i>
         </a>
         <div className="switch-box">
-        <label className="switch">
-          <input type="checkbox" onChange={toggleMode} />
-          <span className="slider"></span>
-        </label>
-        <p className="mode-text">{isEditMode }</p>
-      </div>
+        <label>
+        <Switch
+          onChange={handleChange}
+          checked={checked}
+          className="react-switch"
+        />
+      </label>
+     
+    </div>
       </div>
       </div>
       

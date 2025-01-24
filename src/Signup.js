@@ -47,7 +47,7 @@ const Signup = () => {
       {message && <div className="message">{message}</div>}
   
       <div className="redirect-login">
-        <p>Already have an account? <a href="/login">Login</a></p>
+        <p>Already have an account? <a href="/">Login</a></p>
       </div>
     </div>
   

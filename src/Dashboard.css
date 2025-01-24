@@ -644,3 +644,8 @@ input:checked + .slider:before {
   background-color: #f44336;
   color: white;
 }
+.react-switch {
+  vertical-align: middle;
+  margin-left: 4px;
+}
+    
