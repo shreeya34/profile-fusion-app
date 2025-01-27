@@ -93,27 +93,22 @@
   }
   
   
-  /* Right Side - Photos section */
+
   .signup-right {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e9ecef;
-    padding: 20px;
+    width: 900px;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflow */
+    margin: 0;
+    padding: 0;
   }
   
-  .signup-right .photos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .photos {
+    width: 100px;
+    height: 100px;
   }
   
-  .signup-right .photos img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    object-fit: cover;  /* Ensures image fills its container without distortion */
+  .photos img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Cover the container without overflowing */
   }
-  

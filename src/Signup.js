@@ -54,8 +54,7 @@ const Signup = () => {
     {/* Right Side - Photos */}
     <div className="signup-right">
       <div className="photos">
-        <img src="https://via.placeholder.com/300" alt="Placeholder 1" />
-        <img src="https://via.placeholder.com/300" alt="Placeholder 2" />
+      <img src="images/image1.jpg" alt=" Image" />
       </div>
     </div>
   </div>
