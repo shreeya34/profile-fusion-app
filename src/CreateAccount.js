@@ -108,8 +108,10 @@ const CreateAccount = () => {
 
       {/* Right Side - Image */}
       <div className="create-account-right">
-        <img src="https://via.placeholder.com/300" alt="Placeholder" />
+      <div className="photos">
+        <img src="images/image4.jpg" alt="Your Image" />
       </div>
+    </div>
     </div>
   );
 };
