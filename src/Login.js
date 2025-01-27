@@ -52,11 +52,10 @@ const Login = () => {
 
       {/* Right Side - Photos */}
       <div className="login-right">
-        <div className="photos">
-          <img src="https://via.placeholder.com/300" alt="Placeholder 1" />
-          <img src="https://via.placeholder.com/300" alt="Placeholder 2" />
-        </div>
+      <div className="photos">
+        <img src="images/image3.jpg" alt="Your Image" />
       </div>
+    </div>
     </div>
   );
 };

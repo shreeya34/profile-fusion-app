@@ -23,7 +23,7 @@ const CreateAccount = () => {
     e.preventDefault();
     setError('');
 
-    console.log('Submitting form:', { email, password }); // De
+    console.log('Submitting form:', { email, password }); 
 
     try {
       const response = await fetch('http://localhost:8000/create-account', {
