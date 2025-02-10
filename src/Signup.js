@@ -6,17 +6,24 @@ const Signup = () => {
   const [message, setMessage] = useState('');
 
   const handleInputChange = (e) => {
+    // let value = e.target.value; 
     setUniqueLink(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // For now, just displaying the unique link. You can replace this logic with API call or any functionality.
-    if (uniqueLink) {
-      setMessage(`Link ${uniqueLink} success fully claimed!`);
-    } else {
+    try{
+      const response = await fetch(`http://127.0.0.1:8000/auth/exists?username=${uniqueLink}`)
+      const res = await response.json();
+      if(res.success) {
+        setMessage(`Link ${uniqueLink} successfully claimed!`);
+        return true;
+      }
       setMessage('Please enter a valid link.');
+      return true;
+    }catch(error) {
+       setMessage(`Something went wrong: Please comeback after sometime. ${error}`);
     }
   };
 
