@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Ensure this is imported correctly
 import './CreateAccount.css'; // Styling the page
+ 
 
 
 const CreateAccount = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(''); // Add state for error
+  const [ setMessage] = useState('');
+  
 
 
   const navigate = useNavigate(); 
@@ -21,36 +23,19 @@ const CreateAccount = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-
-    console.log('Submitting form:', { email, password }); 
-
-    try {
-      const response = await fetch('http://localhost:8000/create-account', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password })
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.detail || 'Account creation failed');
+    try{
+      const response = await fetch(`http://127.0.0.1:8002/auth/signup`)
+      const res = await response.json();
+      if(res.success) {
+        setMessage(`Account created successfully!`);
+        setTimeout(() => navigate("/intro"), 1500);
+      } else {
+      setMessage('Account creation failed');
       }
-
-     // Navigate to intro page with email state
-     navigate('/intro', { 
-      state: { 
-        email: email 
-      } 
-    });
-  } catch (err) {
-    setError(err.message);
-    console.error('Account creation error:', err);
-  }
-};
+    }catch(error) {
+       setMessage(`Account creation error:. ${error}`);
+    }
+  };
 
   const goBack = () => {
     navigate('/signup');
@@ -109,7 +94,7 @@ const CreateAccount = () => {
       {/* Right Side - Image */}
       <div className="create-account-right">
       <div className="photos">
-        <img src="images/image4.jpg" alt="Your Image" />
+        <img src="images/image4.jpg" alt="" />
       </div>
     </div>
     </div>

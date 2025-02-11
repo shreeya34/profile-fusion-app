@@ -16,19 +16,22 @@ const Signup = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      const response = await fetch(`http://127.0.0.1:8002/auth/exists?username=${uniqueLink}`)
+    try {
+      const response = await fetch(`http://127.0.0.1:8003/auth/exists?username=${uniqueLink}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       const res = await response.json();
-      if(res.success) {
+      if (res.success) {
         setMessage(`Link ${uniqueLink} successfully claimed!`);
         setTimeout(() => navigate("/create-account"), 1500);
       } else {
-      setMessage('Please enter a valid link.');
+        setMessage('Please enter a valid link.');
       }
-    }catch(error) {
-       setMessage(`Something went wrong: Please comeback after sometime. ${error}`);
+    } catch (error) {
+      setMessage(`Something went wrong: Please come back later.`);
     }
-  };
+};
 
   return (
     <div className="signup-container">
