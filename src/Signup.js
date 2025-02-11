@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  
 import './ClaimLinkSignup.css'; // Styling the page
+
 
 const Signup = () => {
   const [uniqueLink, setUniqueLink] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); 
 
   const handleInputChange = (e) => {
     // let value = e.target.value; 
     setUniqueLink(e.target.value);
   };
-
+ 
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      const response = await fetch(`http://127.0.0.1:8000/auth/exists?username=${uniqueLink}`)
+      const response = await fetch(`http://127.0.0.1:8002/auth/exists?username=${uniqueLink}`)
       const res = await response.json();
       if(res.success) {
         setMessage(`Link ${uniqueLink} successfully claimed!`);
-        return true;
-      }
+        setTimeout(() => navigate("/create-account"), 1500);
+      } else {
       setMessage('Please enter a valid link.');
-      return true;
+      }
     }catch(error) {
        setMessage(`Something went wrong: Please comeback after sometime. ${error}`);
     }
@@ -47,7 +50,7 @@ const Signup = () => {
         </div>
   
         <div className="form-actions">
-          <button type="submit" className="submit-btn">Grab the link</button>
+          <button type="submit" className="submit-btn" >Grab the link</button>
         </div>
       </form>
   
@@ -61,7 +64,7 @@ const Signup = () => {
     {/* Right Side - Photos */}
     <div className="signup-right">
       <div className="photos">
-      <img src="images/image1.jpg" alt=" Image" />
+      <img src="images/image1.jpg" alt="" />
       </div>
     </div>
   </div>
