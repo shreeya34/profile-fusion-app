@@ -17,7 +17,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://127.0.0.1:8003/auth/exists?username=${uniqueLink}`);
+      const response = await fetch(`http://127.0.0.1:8004/auth/exists?username=${uniqueLink}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }

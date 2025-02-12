@@ -6,13 +6,13 @@ import './CreateAccount.css'; // Styling the page
 
 const CreateAccount = () => {
   const [email, setEmail] = useState('');
+
   const [password, setPassword] = useState('');
-  const [ setMessage] = useState('');
-  
+  const [message, setMessage] = useState(''); 
 
 
   const navigate = useNavigate(); 
-
+  
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -20,11 +20,24 @@ const CreateAccount = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+     
+     const generatedUsername = email.split('@')[0] || `user_${Date.now()}`;
     try{
-      const response = await fetch(`http://127.0.0.1:8002/auth/signup`)
+      const response = await fetch(`http://127.0.0.1:8004/auth/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: generatedUsername,
+          email: email,
+          password: password
+        })
+      });
       const res = await response.json();
       if(res.success) {
         setMessage(`Account created successfully!`);
@@ -89,7 +102,9 @@ const CreateAccount = () => {
             <button type="submit" className="submit-btn">Signup</button>
           </div>
         </form>
+        {message && <div className="message">{message}</div>}
       </div>
+   
 
       {/* Right Side - Image */}
       <div className="create-account-right">
