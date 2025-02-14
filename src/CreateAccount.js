@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Ensure this is imported correctly
-import './CreateAccount.css'; // Styling the page
+import './CreateAccount.css'; 
  
 
 
