@@ -27,7 +27,7 @@ const CreateAccount = () => {
      
      const generatedUsername = email.split('@')[0] || `user_${Date.now()}`;
     try{
-      const response = await fetch(`http://127.0.0.1:8004/auth/signup`, {
+      const response = await fetch(`http://127.0.0.1:8001/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
