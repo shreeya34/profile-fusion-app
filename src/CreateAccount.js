@@ -27,7 +27,7 @@ const CreateAccount = () => {
      
      const generatedUsername = email.split('@')[0] || `user_${Date.now()}`;
     try{
-      const response = await fetch(`http://127.0.0.1:8001/auth/signup`, {
+      const response = await fetch(`http://127.0.0.1:8000/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,17 +39,16 @@ const CreateAccount = () => {
         })
       });
       const res = await response.json();
-      if(res.success) {
-        setMessage(`Account created successfully!`);
+      if (response.ok && res.success) {
+        setMessage(res.message || "Account created successfully!");
         setTimeout(() => navigate("/intro"), 1500);
       } else {
-      setMessage('Account creation failed');
+        setMessage(res.message || "Account creation failed");
       }
-    }catch(error) {
-       setMessage(`Account creation error:. ${error}`);
+    } catch (error) {
+      setMessage(`Account creation error: ${error.message}`);
     }
   };
-
   const goBack = () => {
     navigate('/signup');
   };
