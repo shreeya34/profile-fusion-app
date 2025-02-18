@@ -92,10 +92,40 @@ const Intro = () => {
     }
   };
 
-  const handleFinish = () => {
-    // Navigate to the dashboard page
-    navigate("/Dashboard", { state: { firstName: formData.firstName, lastName: formData.lastName } });
+  const handleFinish = async () => {
+    const payload = {
+      first_name: "John",
+      last_name: "Doe",
+      social_links: { github: "https://github.com/johndoe" },
+      website_link: "https://example.com"
+    };
+  
+    const userId = 123; 
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/profiles/profile?user_id=${userId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to submit data");
+      }
+  
+      const result = await response.json();
+      console.log("Success:", result);
+  
+      // Navigate to Dashboard with user data after successful submission
+      navigate("/Dashboard", {
+        state: { firstName: formData.firstName, lastName: formData.lastName },
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
+  
 
   const nextStep = () => {
     if (step < totalSteps) {
