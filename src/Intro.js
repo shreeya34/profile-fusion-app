@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 import "./Intro.css"; // Import your custom styles
 
 const Intro = () => {
@@ -93,19 +94,41 @@ const Intro = () => {
   };
 
   const handleFinish = async () => {
-    const payload = {
-      first_name: "John",
-      last_name: "Doe",
-      social_links: { github: "https://github.com/johndoe" },
-      website_link: "https://example.com"
+  
+    // Fetch user ID dynamically
+    const fetchUserId = async (email) => {
+      try {
+        const res = await fetch(`http://127.0.0.1:8002/auth/signup?email=${email}`, {
+          headers: {
+            "Authorization": `Bearer ${localStorage.getItem("token")}`, // Include token if required
+          },
+        });
+        if (!res.ok) throw new Error("Failed to fetch user ID");
+        const data = await res.json();
+        return data.id; 
+      } catch (error) {
+        console.error("Error fetching user ID:", error);
+        return null;
+      }
     };
   
-    const userId = 123; 
+    const userId = await fetchUserId();
+    if (!userId) return; // Stop execution if no user ID
+  
+    const payload = {
+      first_name: "",
+      last_name: "",
+      social_links: { github: "" },
+      website_link: "",
+      user_id: userId, // Include user ID in body instead of query param
+    };
+  
     try {
-      const response = await fetch(`http://127.0.0.1:8000/profiles/profile?user_id=${userId}`, {
+      const response = await fetch("http://127.0.0.1:8000/profiles/profile", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem("token")}`, // Include token if required
         },
         body: JSON.stringify(payload),
       });
@@ -117,10 +140,11 @@ const Intro = () => {
       const result = await response.json();
       console.log("Success:", result);
   
-      // Navigate to Dashboard with user data after successful submission
+      // Use payload values instead of undefined formData
       navigate("/Dashboard", {
-        state: { firstName: formData.firstName, lastName: formData.lastName },
+        state: { firstName: payload.first_name, lastName: payload.last_name },
       });
+  
     } catch (error) {
       console.error("Error submitting form:", error);
     }
