@@ -100,7 +100,7 @@ const Intro = () => {
       try {
         const res = await fetch(`http://127.0.0.1:8002/auth/signup?email=${email}`, {
           headers: {
-            "Authorization": `Bearer ${localStorage.getItem("token")}`, // Include token if required
+            "Authorization": `Bearer ${localStorage.getItem("token")}`, 
           },
         });
         if (!res.ok) throw new Error("Failed to fetch user ID");
@@ -113,14 +113,14 @@ const Intro = () => {
     };
   
     const userId = await fetchUserId();
-    if (!userId) return; // Stop execution if no user ID
+    if (!userId) return; 
   
     const payload = {
       first_name: "",
       last_name: "",
       social_links: { github: "" },
       website_link: "",
-      user_id: userId, // Include user ID in body instead of query param
+     
     };
   
     try {
@@ -128,7 +128,7 @@ const Intro = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${localStorage.getItem("token")}`, // Include token if required
+          "Authorization": `Bearer ${localStorage.getItem("token")}`, 
         },
         body: JSON.stringify(payload),
       });
@@ -142,7 +142,7 @@ const Intro = () => {
   
       // Use payload values instead of undefined formData
       navigate("/Dashboard", {
-        state: { firstName: payload.first_name, lastName: payload.last_name },
+        state: { firstName: payload.first_name, lastName: payload.last_name, social_links: payload.social_links, website_link: payload.website_link },
       });
   
     } catch (error) {
