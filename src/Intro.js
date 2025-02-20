@@ -95,7 +95,6 @@ const Intro = () => {
 
   const handleFinish = async () => {
   
-    // Fetch user ID dynamically
     const fetchUserId = async (email) => {
       try {
         const res = await fetch(`http://127.0.0.1:8002/auth/signup?email=${email}`, {
