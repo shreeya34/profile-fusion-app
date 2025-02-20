@@ -8,7 +8,9 @@ const Intro = () => {
   const [step, setStep] = useState(1); // Track the current step
   const totalSteps = 5; // Total number of steps (updated to 5)
   const navigate = useNavigate(); // Use navigate for routing
-
+  const [uniqueLink] = useState('');
+  
+ 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -97,11 +99,9 @@ const Intro = () => {
   
     const fetchUserId = async (email) => {
       try {
-        const res = await fetch(`http://127.0.0.1:8002/auth/signup?email=${email}`, {
-          headers: {
-            "Authorization": `Bearer ${localStorage.getItem("token")}`, 
-          },
-        });
+        const res = await fetch(`http://127.0.0.1:8004/auth/exists?username=${uniqueLink}`);
+          
+          
         if (!res.ok) throw new Error("Failed to fetch user ID");
         const data = await res.json();
         return data.id; 
@@ -139,7 +139,7 @@ const Intro = () => {
       const result = await response.json();
       console.log("Success:", result);
   
-      // Use payload values instead of undefined formData
+     
       navigate("/Dashboard", {
         state: { firstName: payload.first_name, lastName: payload.last_name, social_links: payload.social_links, website_link: payload.website_link },
       });
@@ -157,7 +157,7 @@ const Intro = () => {
   };
   return (
     <div className="intro-container">
-      {/* Progress Line */}
+     
       <div className="progress-line">
         <div
           className="progress"
